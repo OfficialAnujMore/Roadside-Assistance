@@ -1,8 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'selectorscreen.dart';
-import 'package:roadsideassistance/const/fontstyle.dart';
+import 'selector_screen.dart';
 
 void main() => runApp(SplashScreen());
 
@@ -16,13 +15,8 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(
-      Duration(seconds: 5),
-      () => Navigator.push(
-        (context),
-        MaterialPageRoute(
-          builder: (context) => SelectorScreen(),
-        ),
-      ),
+      Duration(seconds: 3),
+      () => Navigator.pushReplacementNamed(context, '/selector'),
     );
   }
 

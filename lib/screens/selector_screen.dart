@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:roadsideassistance/main.dart';
 import 'package:roadsideassistance/widgets/clickablecard.dart';
 
 void main() => runApp(SelectorScreen());
