@@ -12,28 +12,30 @@ class ClickableCard extends StatelessWidget {
       onTap: () {
         Navigator.pushReplacementNamed(context, '/login');
       },
-      child: Card(
-        elevation: 5.0,
-        color: color,
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 0.0),
-              child: Image(
-                image: AssetImage('assets/' + file_name),
+      child: SingleChildScrollView(
+        child: Card(
+          elevation: 0.0,
+          color: color,
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 0.0),
+                child: Image(
+                  image: AssetImage('assets/' + file_name),
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 20.0),
-              child: Text(
-                label,
-                style: TextStyle(
-                    fontSize: 20.0,
-                    color: Colors.red,
-                    fontWeight: FontWeight.bold),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 20.0),
+                child: Text(
+                  label,
+                  style: TextStyle(
+                      fontSize: 20.0,
+                      color: Colors.red,
+                      fontWeight: FontWeight.bold),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

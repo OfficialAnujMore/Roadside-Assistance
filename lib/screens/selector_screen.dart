@@ -20,13 +20,13 @@ class _SelectorScreenState extends State<SelectorScreen> {
           ClickableCard(
             color: Colors.white,
             label: "Customer",
-            file_name: "help.png",
+            file_name: "customer.png",
             path: "Customer",
           ),
           ClickableCard(
             color: Colors.white,
             label: "Service Provider",
-            file_name: "towing.png",
+            file_name: "service_provider.png",
             path: "Service Provider",
           ),
         ],
