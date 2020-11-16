@@ -106,7 +106,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Container(
                         child: InkWell(
                           onTap: (){
-                            Navigator.of(context).pushNamed('/');
+                            Navigator.of(context).pushNamed('/selector');
                           },
                           child: Text("Register",
                             style: TextStyle(

@@ -10,7 +10,7 @@ class ClickableCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushReplacementNamed(context, '/login');
+        Navigator.of(context).pushNamed('/login');
       },
       child: SingleChildScrollView(
         child: Card(
