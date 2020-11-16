@@ -44,7 +44,7 @@ class _ServiceProviderState extends State<ServiceProvider> {
                   SizedBox(height: 20.0,),
                   Container(
                     height: 40.0,
-                    child: Submit_Button(button_text: 'Register',),
+                    child: Submit_Button(button_text: 'Register',path: '/login',),
                   ),
 
 

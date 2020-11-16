@@ -65,6 +65,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     alignment: Alignment(1.0,0.0),
                     padding: EdgeInsets.only(left: 20.0 , top:10.0),
                     child: InkWell(
+                      onTap: (){
+                        Navigator.of(context).pushNamed('/forgot_password');
+                      },
                       child: Text("Forgot Password",
                       style: TextStyle(
                           color: Colors.red,
@@ -74,10 +77,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 10.0),
+                  SizedBox(height: 20.0),
                   Container(
                     height: 40.0,
-                    child: Submit_Button(button_text: 'Login',),
+                    child: Submit_Button(button_text: 'Login',path: '/customer_dashboard',),
                   ),
                   SizedBox(height: 20.0),
                   Container(
