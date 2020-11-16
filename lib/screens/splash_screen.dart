@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'selector_screen.dart';
 
 void main() => runApp(SplashScreen());
 
@@ -16,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Timer(
       Duration(seconds: 3),
-      () => Navigator.pushReplacementNamed(context, '/selector'),
+      () => Navigator.pushReplacementNamed(context, '/login'),
     );
   }
 

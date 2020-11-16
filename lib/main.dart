@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/splash_screen.dart';
-import 'screens/selector_screen.dart';
+
 import 'screens/login_screen.dart';
 import 'screens/register_screen.dart';
 
@@ -17,7 +17,6 @@ class Main extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => SplashScreen(),
-        '/selector': (context) => SelectorScreen(),
         '/login': (context) => LoginScreen(),
         '/register': (context) => RegisterScreen(),
       },
