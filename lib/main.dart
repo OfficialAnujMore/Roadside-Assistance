@@ -4,7 +4,7 @@ import 'screens/splash_screen.dart';
 import 'screens/login_screen.dart';
 import 'screens/register_screen.dart';
 import 'screens/forgot_password.dart';
-import 'screens/dashboard_screen_customer.dart';
+import 'screens/customer_dashboard.dart';
 
 void main() {
   runApp(Main());
@@ -22,7 +22,7 @@ class Main extends StatelessWidget {
         '/login': (context) => LoginScreen(),
         '/register': (context) => RegisterScreen(),
         '/forgot_password': (context) => Forgot_passoword(),
-        '/customer_dashboard': (context) => DashboardScreenCustomer(),
+        '/customer_dashboard': (context) => Customer_Dashboard(),
       },
     );
   }
