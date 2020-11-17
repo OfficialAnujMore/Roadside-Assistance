@@ -46,6 +46,8 @@ class _DashboardScreenCustomerState extends State<DashboardScreenCustomer> {
         child: Column(
           children: [
             Container(
+
+
               child: Row(
 
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -78,36 +80,3 @@ class _DashboardScreenCustomerState extends State<DashboardScreenCustomer> {
 }
 
 
-
-
-//
-// SafeArea(
-// child: Column(
-// children: <Widget>[
-// Row(
-// crossAxisAlignment: CrossAxisAlignment.center,
-// children: <Widget>[
-// Container(
-// child: Column(
-// children: <Widget>[
-// Expanded(child: Image.asset(
-// 'assets/Notification_bell.JPG',
-// height: 100,
-// width: 100,
-// ),flex: 2,),
-// Expanded(child: Text('sdsd')),
-// ],
-// ),
-// ),
-// Container(),
-// ],
-// ),
-// Row(
-// children: <Widget>[],
-// ),
-// Row(
-// children: <Widget>[],
-// ),
-// ],
-// ),
-// ),
