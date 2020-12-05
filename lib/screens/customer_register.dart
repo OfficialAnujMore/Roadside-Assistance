@@ -1,9 +1,15 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:roadsideassistance/const/variables.dart';
 import 'package:roadsideassistance/widgets/string_input.dart';
 import 'package:roadsideassistance/widgets/integer_input.dart';
 import 'package:roadsideassistance/widgets/password_input.dart';
 import 'package:roadsideassistance/widgets/submit_button.dart';
 import 'package:http/http.dart' as http;
+import 'package:fluttertoast/fluttertoast.dart';
+
+
 void main() => runApp(Customer_registeration());
 
 class Customer_registeration extends StatefulWidget {
@@ -16,16 +22,18 @@ class _Customer_registerationState extends State<Customer_registeration> {
 
   TextEditingController cust_email, cust_name, cust_password;
 
-    @override
+
+
+  @override
   void initState() {
     // TODO: implement initState
     super.initState();
-
     cust_email = new TextEditingController();
     cust_name = new TextEditingController();
     cust_password = new TextEditingController();
-  }
 
+
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,7 +66,7 @@ class _Customer_registerationState extends State<Customer_registeration> {
                     height: 40.0,
                     child: GestureDetector(
                       onTap: (){
-                        Customer_register(cust_email.text, cust_name.text, cust_password.text);
+                        register();
                       },
                       child: Material(
                         borderRadius: BorderRadius.circular(20.0),
@@ -77,10 +85,6 @@ class _Customer_registerationState extends State<Customer_registeration> {
                       ),
                     ),
                   ),
-
-
-
-
                 ],
               ),
             ),
@@ -91,10 +95,38 @@ class _Customer_registerationState extends State<Customer_registeration> {
     );
   }
 
-  void Customer_register(String email, String name, String password){
-      var url = "http://192.168.0.101/roadside_assistance/customer_register.php";
-      var data = {"email":email, "name":name, "password":password};
-      var res = http.post(url,body: data);
+
+
+
+  Future register()async{
+    var url = Variable.URL +"customer_register.php";
+    var response = await http.post(url,body:{
+      "email" : cust_email.text,
+      "name" : cust_name.text,
+      "password" : cust_password.text,
+    });
+
+    var result = (response.body).trim();
+
+    if (result == 'Successful'){
+      Fluttertoast.showToast(
+        msg: "Registration successful",
+        toastLength: Toast.LENGTH_SHORT,
+        backgroundColor: Colors.redAccent,
+        textColor: Colors.white,
+        fontSize: 16.0,
+      );
+      Navigator.of(context).pushNamed('/login');
+    }
+    else{
+      Fluttertoast.showToast(
+        msg: "Already Registered",
+        toastLength: Toast.LENGTH_SHORT,
+        backgroundColor: Colors.redAccent,
+        textColor: Colors.white,
+        fontSize: 16.0,
+      );
+    }
   }
 }
 

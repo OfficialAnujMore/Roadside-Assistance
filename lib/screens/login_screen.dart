@@ -1,6 +1,13 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:roadsideassistance/widgets/submit_button.dart';
-import 'customer_dashboard.dart';
+import 'package:roadsideassistance/widgets/string_input.dart';
+import 'package:roadsideassistance/widgets/password_input.dart';
+import 'package:http/http.dart' as http;
+import '../const/variables.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() => runApp(LoginScreen());
 
@@ -10,6 +17,20 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+
+  TextEditingController email,password;
+
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    email = new TextEditingController();
+    password = new TextEditingController();
+
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,32 +56,9 @@ class _LoginScreenState extends State<LoginScreen> {
               padding: EdgeInsets.only(top: 0.0, left: 20.0, right: 20.0),
               child: Column(
                 children: [
-                  TextField(
-                    decoration: InputDecoration(
-                      labelText: 'EMAIL',
-                      labelStyle: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                      ),
-                      focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.red),
-                      ),
-                    ),
-                  ),
+                  String_Input(label_text: "EMAIL",controller_text: email,),
                   SizedBox(height: 20.0),
-                  TextField(
-                    decoration: InputDecoration(
-                      labelText: 'PASSWORD',
-                      labelStyle: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                      ),
-                      focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.red),
-                      ),
-                    ),
-                    obscureText: true,
-                  ),
+                  Password_Input(label_text: "PASSWORD",controller_text: password,),
                   SizedBox(height: 5.0),
                   Container(
                     alignment: Alignment(1.0,0.0),
@@ -81,7 +79,27 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(height: 20.0),
                   Container(
                     height: 40.0,
-                    child: Submit_Button(button_text: 'Login',path: '/customer_dashboard',),
+                    child: GestureDetector(
+                      onTap: (){
+                        login();
+                        print("Pressed");
+                      },
+                      child: Material(
+                        borderRadius: BorderRadius.circular(20.0),
+                        shadowColor: Colors.red,
+                        color: Colors.redAccent,
+                        elevation: 7.0,
+                        child:Center(
+                          child: Text(
+                            "Login",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20.0),
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
                   SizedBox(height: 20.0),
                   Container(
@@ -123,5 +141,54 @@ class _LoginScreenState extends State<LoginScreen> {
 
     );
   }
+  Future login()async{
+    var url = Variable.URL +"login.php";
+    var response = await http.post(url,body:{
+      "email" : email.text,
+      "password" : password.text,
+    });
+
+    var result = (response.body).trim();
+    String useremail = email.text;
+
+    print(result);
+
+    if (result == 'Customer Success'){
+      Fluttertoast.showToast(
+        msg: "Login successful",
+        toastLength: Toast.LENGTH_SHORT,
+        backgroundColor: Colors.redAccent,
+        textColor: Colors.white,
+        fontSize: 16.0,
+      );
+
+
+
+
+      Navigator.of(context).pushNamed('/customer_dashboard');
+    }
+    else if (result == 'ESP Success'){
+      Fluttertoast.showToast(
+        msg: "Login successful",
+        toastLength: Toast.LENGTH_SHORT,
+        backgroundColor: Colors.redAccent,
+        textColor: Colors.white,
+        fontSize: 16.0,
+      );
+      Navigator.of(context).pushNamed('/register');
+    }
+    else{
+      Fluttertoast.showToast(
+        msg: "Invalid username or password",
+        toastLength: Toast.LENGTH_SHORT,
+        backgroundColor: Colors.redAccent,
+        textColor: Colors.white,
+        fontSize: 16.0,
+      );
+    }
+  }
+
+
+
 }
 

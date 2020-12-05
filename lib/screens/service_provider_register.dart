@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:roadsideassistance/const/variables.dart';
 import 'package:roadsideassistance/widgets/string_input.dart';
 import 'package:roadsideassistance/widgets/integer_input.dart';
 import 'package:roadsideassistance/widgets/password_input.dart';
 import 'package:roadsideassistance/widgets/submit_button.dart';
 import 'package:http/http.dart' as http;
+import 'package:fluttertoast/fluttertoast.dart';
 
 void main() => runApp(ServiceProvider());
 
@@ -61,7 +63,7 @@ class _ServiceProviderState extends State<ServiceProvider> {
                     height: 40.0,
                     child: GestureDetector(
                       onTap: (){
-                        Service_provider_register(esp_email.text, esp_garage_name.text,esp_phone_number.text,esp_location.text,esp_password.text);
+                        register();
                       },
                       child: Material(
                         borderRadius: BorderRadius.circular(20.0),
@@ -94,9 +96,37 @@ class _ServiceProviderState extends State<ServiceProvider> {
 
   }
 
-  void Service_provider_register(String esp_email, String esp_garage_name, String esp_phone_number, esp_location, esp_password){
-    var url = "http://192.168.0.101/roadside_assistance/service_provider_register.php";
-    var data = {"email":esp_email, "garage_name":esp_garage_name, "phone_number":esp_phone_number, "location":esp_location, "password":esp_password};
-    var res = http.post(url,body: data);
+  Future register()async{
+    var url = Variable.URL +"service_provider_register.php";
+    var response = await http.post(url,body:{
+      "email" : esp_email.text,
+      'garage_name' : esp_garage_name.text,
+      'phone_number' : esp_phone_number.text,
+      'location' : esp_location.text,
+      "password" : esp_password.text,
+    });
+
+    var result = (response.body).trim();
+    print(result+',,,,,,,');
+    if (result == 'Successful'){
+      Fluttertoast.showToast(
+        msg: "Registration successful",
+        toastLength: Toast.LENGTH_SHORT,
+        backgroundColor: Colors.redAccent,
+        textColor: Colors.white,
+        fontSize: 16.0,
+      );
+      Navigator.of(context).pushNamed('/login');
+    }
+    else{
+      Fluttertoast.showToast(
+        msg: "Already Registered",
+        toastLength: Toast.LENGTH_SHORT,
+        backgroundColor: Colors.redAccent,
+        textColor: Colors.white,
+        fontSize: 16.0,
+      );
+    }
   }
 }
+
