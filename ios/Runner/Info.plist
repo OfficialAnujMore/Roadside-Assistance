@@ -2,6 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Needed to access location</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Needed to access location</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Reason why app needs location</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>Reason why app needs location</string>
+    <!-- additionally for iOS 9/10, if you need always permission -->
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Reason why app needs location</string>
+    <key>NSCameraUsageDescription</key>
+    <string>Explanation on why the camera access is needed.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -42,4 +55,5 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 </dict>
+
 </plist>
