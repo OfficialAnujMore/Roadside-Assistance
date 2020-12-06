@@ -19,6 +19,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
 
   TextEditingController email,password;
+  SharedPreferences sp;
 
 
   @override
@@ -147,27 +148,38 @@ class _LoginScreenState extends State<LoginScreen> {
       "email" : email.text,
       "password" : password.text,
     });
+    var result = jsonDecode(response.body);
+    print(result[0]);
+    String type = result[0]['type'];
 
-    var result = (response.body).trim();
-    String useremail = email.text;
+    if (type == 'customer'){
 
-    print(result);
+      String email = result[0]['email'];
+      String name = result[0]['name'];
 
-    if (result == 'Customer Success'){
+      SharedPreferences sp  = await SharedPreferences.getInstance();
+      sp.setString('email', email);
+      sp.setString('name', name);
+      sp.setString('type', type);
       Fluttertoast.showToast(
-        msg: "Login successful",
+        msg: sp.getString('name'),
         toastLength: Toast.LENGTH_SHORT,
         backgroundColor: Colors.redAccent,
         textColor: Colors.white,
         fontSize: 16.0,
       );
-
-
-
-
       Navigator.of(context).pushNamed('/customer_dashboard');
     }
-    else if (result == 'ESP Success'){
+    else if (type == 'esp'){
+
+      String email = result[0]['email'];
+      String garage_name = result[0]['garage_name'];
+      print(garage_name);
+
+      SharedPreferences sp  = await SharedPreferences.getInstance();
+      sp.setString('email', email);
+      sp.setString('garage_name', garage_name);
+      sp.setString('type', type);
       Fluttertoast.showToast(
         msg: "Login successful",
         toastLength: Toast.LENGTH_SHORT,
@@ -175,7 +187,8 @@ class _LoginScreenState extends State<LoginScreen> {
         textColor: Colors.white,
         fontSize: 16.0,
       );
-      Navigator.of(context).pushNamed('/register');
+      Navigator.of(context).pushNamed('/esp_dashboard');
+
     }
     else{
       Fluttertoast.showToast(
@@ -187,6 +200,7 @@ class _LoginScreenState extends State<LoginScreen> {
       );
     }
   }
+
 
 
 

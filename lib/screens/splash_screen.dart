@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() => runApp(SplashScreen());
 
@@ -10,13 +11,39 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  String finalemail,finaltype;
   @override
   void initState() {
+    getvalidationData().whenComplete(() async{
+      if (finaltype == 'customer'){
+        Timer(
+          Duration(seconds: 3),
+              () => Navigator.pushReplacementNamed(context, finalemail == null ? '/login': '/customer_dashboard'),
+        );
+      }
+      else{
+        Timer(
+          Duration(seconds: 3),
+              () => Navigator.pushReplacementNamed(context, finalemail == null ? '/login': '/esp_dashboard'),
+        );
+      }
+
+
+    });
     super.initState();
-    Timer(
-      Duration(seconds: 3),
-      () => Navigator.pushReplacementNamed(context, '/login'),
-    );
+
+  }
+
+  Future getvalidationData() async{
+    final SharedPreferences sp = await SharedPreferences.getInstance();
+
+    var obtainedemail = sp.getString('email');
+    var obtainedtype = sp.getString('type');
+    setState(() {
+      finalemail = obtainedemail;
+      finaltype = obtainedtype;
+    });
+    print(finalemail);
   }
 
   @override

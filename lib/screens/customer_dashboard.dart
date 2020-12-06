@@ -9,15 +9,21 @@ class Customer_Dashboard extends StatefulWidget {
 
 class _Customer_DashboardState extends State<Customer_Dashboard> {
 
+  String name = "";
 
 
-
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getdetails();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
         appBar: AppBar(
-          title: Text("Welcome"),
+          title: Text("Welcome "+name),
           backgroundColor: Colors.red,
           leading: GestureDetector(
             onTap: () {},
@@ -30,14 +36,16 @@ class _Customer_DashboardState extends State<Customer_Dashboard> {
               Padding(
                   padding: EdgeInsets.only(right: 20.0),
                   child: GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamed('/login');
+                    onTap: () async{
+                      final SharedPreferences sp = await SharedPreferences.getInstance();
+                      sp.remove('email');
+                      Navigator.pushReplacementNamed(context, '/login');
+
                     },
-                    child: Image.asset(
-                      'assets/notification_bell.png',
-                      height: 55,
-                      width: 35,
+                    child: Icon(
+                      Icons.power_settings_new,
                       color: Colors.white,
+                      size: 30.0,
                     ),
                   )),
             ]
@@ -96,6 +104,15 @@ class _Customer_DashboardState extends State<Customer_Dashboard> {
     );
   }
 
+  Future getdetails() async {
+    SharedPreferences sp =await SharedPreferences.getInstance();
+    setState(() {
+      name = sp.getString('name');
+
+    });
+
+
+  }
 
 }
 
