@@ -5,7 +5,7 @@ import 'screens/login_screen.dart';
 import 'screens/register_screen.dart';
 import 'screens/forgot_password.dart';
 import 'screens/customer_dashboard.dart';
-import 'screens/service_provider_screen.dart';
+import 'screens/service_provider_dashboard.dart';
 import 'package:roadsideassistance/screens/emergency-form.dart';
 import 'screens/emergency-form.dart';
 
@@ -22,7 +22,7 @@ class Main extends StatelessWidget {
       initialRoute: '/',
       routes: {
 
-        '/': (context) => Emergency_form(),
+        '/': (context) => SplashScreen(),
         '/login': (context) => LoginScreen(),
         '/register': (context) => RegisterScreen(),
         '/forgot_password': (context) => Forgot_passoword(),
