@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:roadsideassistance/const/variables.dart';
+import 'package:roadsideassistance/widgets/email_input.dart';
 import 'package:roadsideassistance/widgets/string_input.dart';
 import 'package:roadsideassistance/widgets/integer_input.dart';
 import 'package:roadsideassistance/widgets/password_input.dart';
@@ -53,7 +54,7 @@ class _ServiceProviderState extends State<ServiceProvider> {
               child: Column(
                 children: [
                   String_Input(label_text: "GARAGE NAME",controller_text: esp_garage_name,),
-                  String_Input(label_text: "EMAIL",controller_text: esp_email,),
+                  Email_Input(label_text: "EMAIL",controller_text: esp_email,),
                   Integer_Input(label_text: "PHONE NUMBER",controller_text:esp_phone_number),
                   String_Input(label_text: "LOCATION",controller_text: esp_location,),
                   Password_Input(label_text: "PASSWORD",controller_text: esp_password,),

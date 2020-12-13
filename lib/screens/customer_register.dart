@@ -8,6 +8,7 @@ import 'package:roadsideassistance/widgets/password_input.dart';
 import 'package:roadsideassistance/widgets/submit_button.dart';
 import 'package:http/http.dart' as http;
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:roadsideassistance/widgets/email_input.dart';
 
 
 void main() => runApp(Customer_registeration());
@@ -57,8 +58,9 @@ class _Customer_registerationState extends State<Customer_registeration> {
               padding: EdgeInsets.only(top: 0.0, left: 20.0, right: 20.0),
               child: Column(
                 children: [
+
                   String_Input(label_text: "NAME",controller_text: cust_name,),
-                  String_Input(label_text: "EMAIL",controller_text: cust_email,),
+                  Email_Input(label_text: "EMAIL",controller_text: cust_email,),
                   Password_Input(label_text: "PASSWORD",controller_text: cust_password,),
                   Password_Input(label_text: "CONFIRM PASSWORD",),
                   SizedBox(height: 20.0,),
@@ -107,6 +109,7 @@ class _Customer_registerationState extends State<Customer_registeration> {
     });
 
     var result = (response.body).trim();
+
 
     if (result == 'Successful'){
       Fluttertoast.showToast(

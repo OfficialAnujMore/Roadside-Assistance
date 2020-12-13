@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:roadsideassistance/widgets/string_input.dart' as String_input;
 
 class Submit_Button extends StatelessWidget {
   Submit_Button({this.button_text, this.path});
@@ -7,6 +8,7 @@ class Submit_Button extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
+
         Navigator.of(context).pushNamed(path);
       },
       child: Material(

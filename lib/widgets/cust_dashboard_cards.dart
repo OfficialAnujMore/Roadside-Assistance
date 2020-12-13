@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class Dashboard_Cards extends StatelessWidget {
+class Cust_Dashboard_Cards extends StatelessWidget {
 
-  Dashboard_Cards({this.card_text1, this.image_path1,this.card_text2, this.image_path2});
+  Cust_Dashboard_Cards({this.card_text1, this.image_path1,this.card_text2, this.image_path2});
 
   final String card_text1,image_path1,card_text2,image_path2;
 

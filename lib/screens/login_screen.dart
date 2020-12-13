@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:roadsideassistance/widgets/submit_button.dart';
@@ -8,6 +7,7 @@ import 'package:roadsideassistance/widgets/password_input.dart';
 import 'package:http/http.dart' as http;
 import '../const/variables.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:roadsideassistance/widgets/email_input.dart';
 
 void main() => runApp(LoginScreen());
 
@@ -34,6 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: Colors.white,
       resizeToAvoidBottomPadding: false,
@@ -57,7 +58,8 @@ class _LoginScreenState extends State<LoginScreen> {
               padding: EdgeInsets.only(top: 0.0, left: 20.0, right: 20.0),
               child: Column(
                 children: [
-                  String_Input(label_text: "EMAIL",controller_text: email,),
+                  Email_Input(label_text: "Email",controller_text: email,),
+                  // String_Input(label_text: "EMAIL",controller_text: email,),
                   SizedBox(height: 20.0),
                   Password_Input(label_text: "PASSWORD",controller_text: password,),
                   SizedBox(height: 5.0),
@@ -83,7 +85,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: GestureDetector(
                       onTap: (){
                         login();
-                        print("Pressed");
+                        // print("Pressed");
                       },
                       child: Material(
                         borderRadius: BorderRadius.circular(20.0),
@@ -128,13 +130,14 @@ class _LoginScreenState extends State<LoginScreen> {
 
                           ),
                         ),
-                        SizedBox(height: 50.0,)
                       ],
                     ),
                   ),
+                  SizedBox(height: 10.0,),
                 ],
               ),
             ),
+            SizedBox(height: 150.0,),
           ],
         ),
 
@@ -162,7 +165,7 @@ class _LoginScreenState extends State<LoginScreen> {
       sp.setString('name', name);
       sp.setString('type', type);
       Fluttertoast.showToast(
-        msg: sp.getString('name'),
+        msg: "Login Successful",
         toastLength: Toast.LENGTH_SHORT,
         backgroundColor: Colors.redAccent,
         textColor: Colors.white,
@@ -205,4 +208,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
 
 }
+
+
 

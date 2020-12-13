@@ -1,5 +1,8 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 
 class Integer_Input extends StatelessWidget {
 
@@ -9,22 +12,26 @@ class Integer_Input extends StatelessWidget {
   final controller_text;
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      controller: controller_text,
-      decoration:  InputDecoration(labelText:label_text,
-        labelStyle: TextStyle(
-          fontWeight: FontWeight.bold,
-          color: Colors.black,
+    return Form(
+      child: TextFormField(
+        controller: controller_text,
+        autofocus: true,
+        validator: RequiredValidator(errorText: "* Required"),
+        decoration:  InputDecoration(labelText:label_text,
+          labelStyle: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
 
+          ),
+          focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.red)),
         ),
-        focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.red)),
+
+        keyboardType: TextInputType.number,
+        inputFormatters: <TextInputFormatter>[
+          FilteringTextInputFormatter.digitsOnly
+        ],
+
       ),
-
-      keyboardType: TextInputType.number,
-      inputFormatters: <TextInputFormatter>[
-        FilteringTextInputFormatter.digitsOnly
-      ],
-
     );
   }
 }

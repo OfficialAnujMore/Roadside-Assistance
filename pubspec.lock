@@ -107,6 +107,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "7.1.5"
+  form_field_validator:
+    dependency: "direct dev"
+    description:
+      name: form_field_validator
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
   geocoder:
     dependency: "direct main"
     description:

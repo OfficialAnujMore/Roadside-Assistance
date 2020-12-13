@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:roadsideassistance/widgets/dashboard_cards.dart';
+import 'package:roadsideassistance/widgets/cust_dashboard_cards.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Customer_Dashboard extends StatefulWidget {
@@ -61,7 +61,7 @@ class _Customer_DashboardState extends State<Customer_Dashboard> {
                 child: Center(
                   child: Column(
                     children: [
-                      Dashboard_Cards(
+                      Cust_Dashboard_Cards(
                         card_text1: "Flat Tire",
                         image_path1: 'flat_tire.png',
                         card_text2: "Towing",
@@ -69,7 +69,7 @@ class _Customer_DashboardState extends State<Customer_Dashboard> {
 
                       ),
                       SizedBox(height: 20.0,),
-                      Dashboard_Cards(
+                      Cust_Dashboard_Cards(
                         card_text1: "Low Fuel",
                         image_path1: 'low_fuel.png',
                         card_text2: "Locked",
@@ -77,7 +77,7 @@ class _Customer_DashboardState extends State<Customer_Dashboard> {
 
                       ),
                       SizedBox(height: 20.0,),
-                      Dashboard_Cards(
+                      Cust_Dashboard_Cards(
                         card_text1: "Break Down",
                         image_path1: 'car_break_down.png',
                         card_text2: "Engine Heat",
@@ -85,7 +85,7 @@ class _Customer_DashboardState extends State<Customer_Dashboard> {
 
                       ),
                       SizedBox(height: 20.0,),
-                      Dashboard_Cards(
+                      Cust_Dashboard_Cards(
                         card_text1: "Battery Dead",
                         image_path1: 'car_battery.png',
                         card_text2: "Engine Oil",
