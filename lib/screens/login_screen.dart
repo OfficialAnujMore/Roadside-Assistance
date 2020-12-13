@@ -171,7 +171,7 @@ class _LoginScreenState extends State<LoginScreen> {
         textColor: Colors.white,
         fontSize: 16.0,
       );
-      Navigator.of(context).pushNamed('/customer_dashboard');
+      Navigator.of(context).pushReplacementNamed('/customer_dashboard');
     }
     else if (type == 'esp'){
 
@@ -190,7 +190,7 @@ class _LoginScreenState extends State<LoginScreen> {
         textColor: Colors.white,
         fontSize: 16.0,
       );
-      Navigator.of(context).pushNamed('/esp_dashboard');
+      Navigator.of(context).pushReplacementNamed('/esp_dashboard');
 
     }
     else{

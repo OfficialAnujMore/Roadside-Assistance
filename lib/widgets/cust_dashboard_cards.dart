@@ -16,7 +16,9 @@ class Cust_Dashboard_Cards extends StatelessWidget {
           width: 160.0,
           child: GestureDetector(
             onTap: (){
-              Navigator.of(context).pushNamed('/login');
+              Navigator.pushNamed(context,'/emergency_form',arguments:{
+                'card_text':card_text1 ,
+              });
             },
             child: Card(
               elevation: 10.0,
@@ -43,7 +45,9 @@ class Cust_Dashboard_Cards extends StatelessWidget {
           width: 160.0,
           child: GestureDetector(
             onTap: (){
-              Navigator.of(context).pushNamed('/login');
+              Navigator.pushNamed(context,'/emergency_form',arguments:{
+                'card_text':card_text2 ,
+              });
             },
             child: Card(
               elevation: 10.0,

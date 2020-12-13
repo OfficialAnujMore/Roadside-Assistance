@@ -3,9 +3,9 @@ import 'package:roadsideassistance/const/textstyle.dart';
 
 
 class Esp_Dashboard_Card extends StatelessWidget {
-  Esp_Dashboard_Card({this.cust_name,this.vehicle_number,this.issue,this.cust_location,this.image_path});
+  Esp_Dashboard_Card({this.cust_name,this.vehicle_number,this.issue,this.image_path});
 
-  String cust_name, vehicle_number, issue, cust_location, image_path;
+  String cust_name, vehicle_number, issue, image_path;
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +45,7 @@ class Esp_Dashboard_Card extends StatelessWidget {
                         fontWeight: FontWeight.bold)),
                     Text(vehicle_number,style: Custom_style.esp_card,),
                     Text(issue,style: Custom_style.esp_card,),
-                    Text(cust_location,style: Custom_style.esp_card,),
+                    
 
                   ],
                 ),
@@ -105,4 +105,6 @@ class Esp_Dashboard_Card extends StatelessWidget {
 
     );
   }
+
+  
 }

@@ -7,6 +7,8 @@ import 'package:roadsideassistance/widgets/password_input.dart';
 import 'package:roadsideassistance/widgets/submit_button.dart';
 import 'package:http/http.dart' as http;
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:geocoder/geocoder.dart';
 
 void main() => runApp(ServiceProvider());
 
@@ -30,6 +32,19 @@ class _ServiceProviderState extends State<ServiceProvider> {
     esp_phone_number = new TextEditingController();
     esp_location = new TextEditingController();
     esp_password = new TextEditingController();
+  }
+
+   var userlat = 0.0;
+  var userlong = 0.0;
+  var datalocation;
+  void getCurrentLocation() async {
+    var Position = await Geolocator()
+        .getCurrentPosition(desiredAccuracy: LocationAccuracy.best);
+    userlat = Position.latitude;
+    userlong = Position.longitude;
+    print('$userlat' + '$userlong');
+
+
   }
   @override
   Widget build(BuildContext context) {
@@ -56,7 +71,23 @@ class _ServiceProviderState extends State<ServiceProvider> {
                   String_Input(label_text: "GARAGE NAME",controller_text: esp_garage_name,),
                   Email_Input(label_text: "EMAIL",controller_text: esp_email,),
                   Integer_Input(label_text: "PHONE NUMBER",controller_text:esp_phone_number),
-                  String_Input(label_text: "LOCATION",controller_text: esp_location,),
+                  SizedBox(
+                    height: 15.0,
+                  ),RaisedButton(
+                    elevation: 10.0,
+                    onPressed: () {
+                      getCurrentLocation();
+                    },
+                    child: Text(
+                      'Fetch Location',
+                      style: TextStyle(fontSize: 20.0),
+                    ),
+                    color: Colors.redAccent,
+                    textColor: Colors.white,
+                  ),
+                  SizedBox(
+                    height: 10.0,
+                  ),
                   Password_Input(label_text: "PASSWORD",controller_text: esp_password,),
                   Password_Input(label_text: "CONFIRM PASSWORD",),
                   SizedBox(height: 20.0,),
@@ -103,7 +134,8 @@ class _ServiceProviderState extends State<ServiceProvider> {
       "email" : esp_email.text,
       'garage_name' : esp_garage_name.text,
       'phone_number' : esp_phone_number.text,
-      'location' : esp_location.text,
+      'latitude' : userlat.toString(),
+      'longitude' : userlong.toString(),
       "password" : esp_password.text,
     });
 
