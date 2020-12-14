@@ -77,7 +77,7 @@ class _SplashScreenState extends State<SplashScreen> {
                         padding: EdgeInsets.all(5.0),
                       ),
                       Text(
-                        "Road Side Assistance",
+                        "Roadside Assistance",
                         style: TextStyle(
                             fontSize: 20.0,
                             color: Colors.white,

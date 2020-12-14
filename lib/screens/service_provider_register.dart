@@ -73,17 +73,35 @@ class _ServiceProviderState extends State<ServiceProvider> {
                   Integer_Input(label_text: "PHONE NUMBER",controller_text:esp_phone_number),
                   SizedBox(
                     height: 15.0,
-                  ),RaisedButton(
-                    elevation: 10.0,
-                    onPressed: () {
-                      getCurrentLocation();
-                    },
-                    child: Text(
-                      'Fetch Location',
-                      style: TextStyle(fontSize: 20.0),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(13.0),
+                    child: Container(
+                      height: 40.0,
+                      child: Container(
+                        height: 40.0,
+                        child: GestureDetector(
+                          onTap: () {
+                            getCurrentLocation();
+                          },
+                          child: Material(
+                            borderRadius: BorderRadius.circular(20.0),
+                            shadowColor: Colors.red,
+                            color: Colors.redAccent,
+                            elevation: 7.0,
+                            child:Center(
+                              child: Text(
+                                'Fetch location',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20.0),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
-                    color: Colors.redAccent,
-                    textColor: Colors.white,
                   ),
                   SizedBox(
                     height: 10.0,

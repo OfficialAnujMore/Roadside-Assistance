@@ -139,7 +139,7 @@ class _Emergency_formState extends State<Emergency_form> {
       var generalNotificationDetails = new NotificationDetails(android: androidDetail, iOS: iOSDetails);
       // await fltrNotification.show(0, 'Request Accepted', 'Your request is Accepted', generalNotificationDetails);
 
-    var scheduleTime = DateTime.now().add(Duration(minutes: 1,seconds: 30));
+    var scheduleTime = DateTime.now().add(Duration(minutes: 2 ,));
     // fltrNotification.Schedule(0, 'Request Accepted', 'Your request is Accepted',
     //     scheduleTime, generalNotificationDetails);
 
