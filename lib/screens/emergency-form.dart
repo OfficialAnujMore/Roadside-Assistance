@@ -12,6 +12,8 @@ import 'package:geolocator/geolocator.dart';
 import 'package:geocoder/geocoder.dart';
 import 'package:http/http.dart' as http;
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+
 
 // List<CameraDescription> cameras;//for list of cameras
 // cameras= await availableCameras();//accesss camera
@@ -29,6 +31,8 @@ class Emergency_form extends StatefulWidget {
 class _Emergency_formState extends State<Emergency_form> {
   TextEditingController vech_reg_num, cust_name, description_;
   File imageFile;
+  FlutterLocalNotificationsPlugin fltrNotification;
+
   _openGallary(BuildContext context) async {
 // ignore: deprecated_member_use
     var picture = await ImagePicker.pickImage(source: ImageSource.gallery);
@@ -113,7 +117,37 @@ class _Emergency_formState extends State<Emergency_form> {
     cust_name = new TextEditingController();
    // detailed_type = new TextEditingController();
     description_ = new TextEditingController();
+    fltrNotification = FlutterLocalNotificationsPlugin();
+
+    var android = new AndroidInitializationSettings('@mipmap/ic_launcher');
+    var ios = new IOSInitializationSettings();
+    var initilize  = new InitializationSettings(android: android,iOS: ios);
+    fltrNotification =  new FlutterLocalNotificationsPlugin();
+    fltrNotification.initialize(initilize, onSelectNotification: notificationSelected);
+
   }
+
+  Future notificationSelected (String payload){
+    if (payload != null){
+      debugPrint("Notification: " + payload);
+    }
+  }
+
+  Future _showNotification() async{
+      var androidDetail = new AndroidNotificationDetails('channelId', 'Roadside Assistance', "channelDescription", importance: Importance.max);
+      var iOSDetails = new IOSNotificationDetails();
+      var generalNotificationDetails = new NotificationDetails(android: androidDetail, iOS: iOSDetails);
+      // await fltrNotification.show(0, 'Request Accepted', 'Your request is Accepted', generalNotificationDetails);
+
+    var scheduleTime = DateTime.now().add(Duration(minutes: 1,seconds: 30));
+    // fltrNotification.Schedule(0, 'Request Accepted', 'Your request is Accepted',
+    //     scheduleTime, generalNotificationDetails);
+
+    fltrNotification.schedule(0, 'Request Accepted', 'Your request is Accepted',
+              scheduleTime, generalNotificationDetails);
+  }
+
+
 
 // Widget _decideImageView(){
 //   if(imageFile == null){
@@ -133,6 +167,7 @@ var cardtext='';
         backgroundColor: Colors.red,
         body: SingleChildScrollView(
           child: Padding(
+
             padding: const EdgeInsets.all(25.0),
             child: Card(
               elevation: 10.0,
@@ -161,7 +196,9 @@ var cardtext='';
                   RaisedButton(
                     elevation: 10.0,
                     onPressed: () {
+
                       _showChoiceDialog(context);
+
                     },
                     child: Text(
                       'Take/Choose Picture',
@@ -203,7 +240,9 @@ var cardtext='';
                       height: 40.0,
                       child: GestureDetector(
                         onTap: () {
+                          _showNotification();
                           EmergencyForm();
+
                           
                         },
                         child: Material(
@@ -251,7 +290,7 @@ var cardtext='';
     print(result+',,,,,,,');
     if (result == 'Successful'){
       Fluttertoast.showToast(
-        msg: "Registration successful",
+        msg: "Request send successfully",
         toastLength: Toast.LENGTH_SHORT,
         backgroundColor: Colors.redAccent,
         textColor: Colors.white,
@@ -270,5 +309,7 @@ var cardtext='';
     }
   }
 }
+
+
 
 

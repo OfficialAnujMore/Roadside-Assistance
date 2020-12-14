@@ -173,7 +173,7 @@ class _LoginScreenState extends State<LoginScreen> {
       );
       Navigator.of(context).pushReplacementNamed('/customer_dashboard');
     }
-    else if (type == 'esp'){
+    else if (type == 'esp') {
 
       String email = result[0]['email'];
       String garage_name = result[0]['garage_name'];
@@ -202,6 +202,8 @@ class _LoginScreenState extends State<LoginScreen> {
         fontSize: 16.0,
       );
     }
+
+    // if (type == 'esp')
   }
 
 

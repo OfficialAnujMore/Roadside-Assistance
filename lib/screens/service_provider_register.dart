@@ -134,6 +134,7 @@ class _ServiceProviderState extends State<ServiceProvider> {
       "email" : esp_email.text,
       'garage_name' : esp_garage_name.text,
       'phone_number' : esp_phone_number.text,
+      // 'latitude' : userlat.toString(),
       'latitude' : userlat.toString(),
       'longitude' : userlong.toString(),
       "password" : esp_password.text,

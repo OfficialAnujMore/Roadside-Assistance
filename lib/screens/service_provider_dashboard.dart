@@ -92,7 +92,13 @@ CustomListView(this.viewcards);
               children: [
                 MaterialButton(
                   onPressed: (){
-
+                    Fluttertoast.showToast(
+                      msg: "Request Accepted",
+                      toastLength: Toast.LENGTH_SHORT,
+                      backgroundColor: Colors.greenAccent,
+                      textColor: Colors.black,
+                      fontSize: 16.0,
+                    );
 
                   },
                   child:Row(
@@ -111,7 +117,13 @@ CustomListView(this.viewcards);
 
                 MaterialButton(
                   onPressed: (){
-
+                    Fluttertoast.showToast(
+                      msg: "Request Declined",
+                      toastLength: Toast.LENGTH_SHORT,
+                      backgroundColor: Colors.redAccent,
+                      textColor: Colors.white,
+                      fontSize: 16.0,
+                    );
                   },
                   child:Row(
                     children:[
