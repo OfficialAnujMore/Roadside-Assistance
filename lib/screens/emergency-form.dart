@@ -164,14 +164,19 @@ var cardtext='';
    cardtext = (data['card_text']);
     print(cardtext);
     return Scaffold(
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+        title: Text("Welcome "),
+    backgroundColor: Colors.red,
+        ),
         body: SingleChildScrollView(
-          child: Padding(
 
+          child: Padding(
             padding: const EdgeInsets.all(25.0),
             child: Card(
-              elevation: 10.0,
-              shadowColor: Colors.white,
+            margin: EdgeInsets.only(top: 40.0),
+              // elevation: 10.0,
+              // shadowColor: Colors.red,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20.0),
               ),
@@ -193,21 +198,33 @@ var cardtext='';
                       controller_text: vech_reg_num,
                     ),
                   ),
-                  RaisedButton(
-                    elevation: 10.0,
-                    onPressed: () {
-
-                      _showChoiceDialog(context);
-
-                    },
-                    child: Text(
-                      'Take/Choose Picture',
-                      style: TextStyle(fontSize: 20.0),
+                  Padding(
+                    padding: const EdgeInsets.all(13.0),
+                    child: Container(
+                      height: 40.0,
+                      child: GestureDetector(
+                        onTap: () {
+                          _showChoiceDialog(context);
+                        },
+                        child: Material(
+                          borderRadius: BorderRadius.circular(20.0),
+                          shadowColor: Colors.red,
+                          color: Colors.redAccent,
+                          elevation: 7.0,
+                          child:Center(
+                            child: Text(
+                              'Take/Choose Picture',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20.0),
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
-                    color: Colors.redAccent,
-                    textColor: Colors.white,
                   ),
-                   
+
                   Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: Text("Problem Type - $cardtext",)
@@ -219,40 +236,22 @@ var cardtext='';
                       controller_text: description_,
                     ),
                   ),
-                  RaisedButton(
-                    elevation: 10.0,
-                    onPressed: () {
-                      getCurrentLocation();
-                    },
-                    child: Text(
-                      'Fetch Location',
-                      style: TextStyle(fontSize: 20.0),
-                    ),
-                    color: Colors.redAccent,
-                    textColor: Colors.white,
-                  ),
-                  SizedBox(
-                    height: 20.0,
-                  ),
                   Padding(
                     padding: const EdgeInsets.all(13.0),
                     child: Container(
                       height: 40.0,
                       child: GestureDetector(
                         onTap: () {
-                          _showNotification();
-                          EmergencyForm();
-
-                          
+                          getCurrentLocation();
                         },
                         child: Material(
-                          borderRadius: BorderRadius.circular(5.0),
+                          borderRadius: BorderRadius.circular(20.0),
                           shadowColor: Colors.red,
                           color: Colors.redAccent,
-                          elevation: 13.0,
-                          child: Center(
+                          elevation: 7.0,
+                          child:Center(
                             child: Text(
-                              "Submit",
+                              "Fetch Location",
                               style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
@@ -261,6 +260,61 @@ var cardtext='';
                           ),
                         ),
                       ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20.0,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(13.0),
+                    child: Container(
+                      height: 40.0,
+                     child: Container(
+                        height: 40.0,
+                        child: GestureDetector(
+                          onTap: () {
+                            _showNotification();
+                            EmergencyForm();
+                          },
+                          child: Material(
+                            borderRadius: BorderRadius.circular(20.0),
+                            shadowColor: Colors.red,
+                            color: Colors.redAccent,
+                            elevation: 7.0,
+                            child:Center(
+                              child: Text(
+                                'Submit',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20.0),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      // child: GestureDetector(
+                      //   onTap: () {
+                      //
+                      //
+                      //
+                      //   },
+                      //   child: Material(
+                      //     borderRadius: BorderRadius.circular(10.0),
+                      //     shadowColor: Colors.red,
+                      //     color: Colors.redAccent,
+                      //     elevation: 13.0,
+                      //     child: Center(
+                      //       child: Text(
+                      //         "Submit",
+                      //         style: TextStyle(
+                      //             color: Colors.white,
+                      //             fontWeight: FontWeight.bold,
+                      //             fontSize: 20.0),
+                      //       ),
+                      //     ),
+                      //   ),
+                      // ),
                     ),
                   ),
                   SizedBox(height: 20.0)
