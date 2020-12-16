@@ -11,7 +11,7 @@ App Preview
 ---
 
 
-<img src="https://user-images.githubusercontent.com/53031645/102353161-b48ec380-3fce-11eb-828b-1c7fb96bc668.jpg" width="300"  alt="Login Screen" title="Login Screen">
+<kbd><img src="https://user-images.githubusercontent.com/53031645/102353161-b48ec380-3fce-11eb-828b-1c7fb96bc668.jpg" width="300"  alt="Login Screen" title="Login Screen"></kbd>
 
 <kbd>
   <img src="https://user-images.githubusercontent.com/53031645/102353232-cb351a80-3fce-11eb-9e64-feb360527f4b.jpg" width="300">
