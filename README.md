@@ -23,9 +23,9 @@ App Preview
 
 
 
-<kbd><img src="https://user-images.githubusercontent.com/53031645/102353217-c83a2a00-3fce-11eb-90fc-b58b34defdf8.jpg" width="300" alt="Service provider registration" title="Login Screen"></kbd>
+<kbd><img src="https://user-images.githubusercontent.com/53031645/102353217-c83a2a00-3fce-11eb-90fc-b58b34defdf8.jpg" width="300" alt="Service provider registration" title="Service provider registration"></kbd>
 
-<kbd><img src="https://user-images.githubusercontent.com/53031645/102353226-ca03ed80-3fce-11eb-8091-87b656bde79d.jpg" width="300"  alt="Service provider dashboard" title="Login Screen"></kbd>
+<kbd><img src="https://user-images.githubusercontent.com/53031645/102353226-ca03ed80-3fce-11eb-8091-87b656bde79d.jpg" width="300"  alt="Service provider dashboard" title="Service provider dashboard"></kbd>
 
 
 
