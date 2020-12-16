@@ -27,3 +27,11 @@ App Preview
 <img src="https://user-images.githubusercontent.com/53031645/102353226-ca03ed80-3fce-11eb-8091-87b656bde79d.jpg" width="300">       <img src="https://user-images.githubusercontent.com/53031645/102353217-c83a2a00-3fce-11eb-90fc-b58b34defdf8.jpg" width="300">
 
 
+
+
+img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+}
