@@ -1,5 +1,5 @@
 # Roadside assistance
-# Roadside assistance is a cross-platform mobile application developed using a flutter framework. The application will provide a one-click view of the nearest service center whenever a user is stuck with some vehicle issue.
+### Roadside assistance is a _cross-platform mobile application_ developed using a _flutter framework._ The application will provide a one-click view of the nearest service center whenever a user is stuck with some vehicle issue.
 
 
 
