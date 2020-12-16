@@ -17,7 +17,7 @@ App Preview
 
 
 
-<kbd><img src="https://user-images.githubusercontent.com/53031645/102353235-cb351a80-3fce-11eb-8750-35cf6fcfe6ba.jpg"" width="300"  alt="Login Screen" title="Login Screen"></kbd>
+<kbd><img src="https://user-images.githubusercontent.com/53031645/102353235-cb351a80-3fce-11eb-8750-35cf6fcfe6ba.jpg" width="300"  alt="Customer dashboard" title="Customer dashboard"></kbd>
 
 <kbd><img src="https://user-images.githubusercontent.com/53031645/102353240-cc664780-3fce-11eb-865a-4129899f0562.jpg" width="300" lt="Forgot password" title="Login Screen"></kbd>
 
