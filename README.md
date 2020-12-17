@@ -33,4 +33,8 @@ App Preview
 
 
 
-### Copyright © Anuj More
+
+
+### Copyright © 2020 Anuj More.
+
+
